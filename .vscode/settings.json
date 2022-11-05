@@ -1,0 +1,7 @@
+{
+    "files.exclude": {
+        "**/.pnp.*": true,
+        "yarn.lock": true
+    },
+    "prettier.prettierPath": ""
+}

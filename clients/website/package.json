@@ -1,0 +1,7 @@
+{
+    "name": "website",
+    "packageManager": "yarn@3.2.4",
+    "scripts": {
+        "start": "echo \"starting website...\""
+    }
+}
