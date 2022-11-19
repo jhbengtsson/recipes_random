@@ -1,0 +1,45 @@
+@import url('https://fonts.googleapis.com/css2?family=Lilita+One&display=swap');
+
+body {
+    margin: 0;
+    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
+      'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
+      sans-serif;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+    background-color: #F3DFA2;
+}
+
+
+
+.page-container{
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+}
+
+/* /////////////// Logo /////////////// */
+
+.logo {
+  margin-top: 15px;  
+  height: 200px;
+  width: 200px;
+  text-align: center;
+    
+}
+
+.logo-text {
+    line-height: 0px;
+    color: #8D4C00;
+    font-family: 'Lilita One', cursive;
+    letter-spacing: 5px;
+    font-size: 40px;
+}
+
+
+/* /////////////// RecipeThumb /////////////// */
+
+.recipe-thumb-container{
+  
+}
+  
