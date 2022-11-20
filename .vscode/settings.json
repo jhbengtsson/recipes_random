@@ -2,7 +2,7 @@
     "files.exclude": {
         ".yarn*": true,
         "**/.pnp.*": true,
-        "node_modules": true,
+        "**/*node_modules": true,
         "yarn.lock": true
     },
     "prettier.prettierPath": ""

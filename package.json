@@ -3,19 +3,22 @@
     "name": "recipes_random",
     "packageManager": "yarn@3.2.4",
     "workspaces": [
-        "clients/website",
+        "clients/recipes-random",
         "common/core",
         "services/api"
     ],
     "scripts": {
-        "website": "yarn workspace website",
+        "website": "yarn workspace recipes-random",
+        "website:dev": "yarn website start",
         "api": "yarn workspace api",
+        "api:dev": "yarn api start",
         "core": "yarn workspace core",
         "format": "yarn prettier --write \"**/*.{js,jsx,ts,tsx,css,md,json}\" --config ./.prettierrc",
         "lint": "yarn eslint \"**/*.{js,jsx,ts,tsx,css,json}\" --config ./.eslintrc.json"
     },
     "devDependencies": {
         "@jest/types": "^29.2.1",
+        "@types/cors": "^2.8.12",
         "@types/jest": "^29.2.2",
         "@types/node": "^18.11.9",
         "@typescript-eslint/eslint-plugin": "^5.42.0",

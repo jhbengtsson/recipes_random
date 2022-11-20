@@ -27,13 +27,11 @@ class ServerAuth {
             });
 
         log('CLOSING FRIDGE: 🥶', 'VERBOSE');
-        log(html.length.toString(), 'VERBOSE');
         return this.SplitBody(html);
     }
 
     static SplitBody(html: string): string {
         const bodyStr = html.substring(0, 200000);
-        log(bodyStr, "VERBOSE")
         const startQuery = '"access_token":"';
         const endQuery = '",';
 
@@ -43,10 +41,7 @@ class ServerAuth {
             startIndex + startQuery.length
         );
 
-        log(`START: ${startIndex} " END:${endIndex}`, 'VERBOSE');
-
         const token = bodyStr.substring(startIndex + startQuery.length, endIndex);
-        log(`Secret sauce: ${token}`, 'VERBOSE');
         return token;
     }
 }

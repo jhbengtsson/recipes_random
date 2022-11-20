@@ -1,6 +1,6 @@
-import GetRecipes from "../Pantry/Utensils/GetRecipes"
-import ServerAuth from "../Pantry/Utensils/ServerAuth"
-import UrlUtil from "../Pantry/Utensils/UrlUtil"
+import GetRecipes from "../../../clients/recipes-random/src/Utensils/GetRecipes"
+import ServerAuth from "../../../clients/recipes-random/src/Utensils/ServerAuth"
+import UrlUtil from "../../../clients/recipes-random/src/Utensils/UrlUtil"
 
 describe("ServerAuth", ()=>{
   it("Should split the body and get the token", ()=>{
@@ -20,13 +20,34 @@ describe("UrlUtil", ()=>{
 })
 
 describe("GetRecipes", ()=>{
-    let auth = ""
+  let getRecipes = new GetRecipes("")
+
   beforeAll(async ()=>{
-    auth = await ServerAuth.GetAccessToken()
+      const auth = await ServerAuth.GetAccessToken()
+      getRecipes = new GetRecipes(auth)
   })
+
   it("Should return a positive number :)", async ()=>{
-    const getRecipes = new GetRecipes(auth)
     const count = await getRecipes.Browse()
     expect(count).toBeGreaterThan(0)
   })
+
+  it("Should get all recipes as json", async () => {
+    await getRecipes.Shop();
+    const raw = getRecipes.Raw
+    
+    console.log(raw[0])
+    
+    expect(raw.length).toBeGreaterThan(0)
+  })
+
+  it("Should convert the json array to an array of Recipe objects", () => {
+    getRecipes.SliceAndDice();
+
+    expect(getRecipes.Recipes[0].Id).not.toEqual("")
+    expect(getRecipes.Recipes.length).toEqual(getRecipes.Raw.length)
+  })
+
+  
 })
+

@@ -1,7 +1,7 @@
 {
     "name": "core",
+    "version": "1.0.0",
     "packageManager": "yarn@3.2.4",
-    "type": "module",
     "devDependencies": {
         "@jest/types": "^29.2.1",
         "@types/jest": "^29.2.1",
@@ -9,7 +9,7 @@
         "ts-jest": "^29.0.3"
     },
     "scripts": {
-        "test": "jest"
+        "test": "cls && jest"
     },
     "dependencies": {
         "node-fetch": "^3.2.10"
