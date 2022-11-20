@@ -9,8 +9,6 @@ import log from './Log';
 
 class ServerAuth {
     static async GetAccessToken(): Promise<string> {
-        log('OPENING FRIDGE: 🥶', 'VERBOSE');
-
         let html = '';
 
         await fetch('https://www.hellofresh.dk/recipes/most-popular-recipes', {
@@ -26,7 +24,6 @@ class ServerAuth {
                 log('Nothing in the fridge! 😥', 'ERROR')
             });
 
-        log('CLOSING FRIDGE: 🥶', 'VERBOSE');
         return this.SplitBody(html);
     }
 

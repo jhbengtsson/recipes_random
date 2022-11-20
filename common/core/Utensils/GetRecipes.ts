@@ -48,12 +48,10 @@ class GetRecipes {
         }
 
         await Promise.all(promises)
-        console.log(this.Raw.length)
     }
 
     async ShopSimultaneously(take: number, skip: number) : Promise<void> {
         const url: string = UrlUtil.Generate(take, skip);
-
         await fetch(url, {
             method: 'GET',
             headers: {

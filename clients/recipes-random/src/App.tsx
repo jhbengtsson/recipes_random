@@ -1,41 +1,34 @@
-import React, { useEffect, useState } from 'react';
+import React, { useContext, useEffect, useState } from 'react';
 import './custom.css';
 import RecipePage from './pages/RecipePage';
 import Logo from './components/Logo';
 import { IRecipe } from './models/Recipe';
+import { Routes, Route, BrowserRouter } from 'react-router-dom';
+import RecipeDetailsPage from './pages/RecipeDetailsPage';
+import LoginPage from './pages/LoginPage';
+import AuthContext from './authContext';
 
 function App() {
-  
-  const [recipes, setRecipes] = useState<Array<IRecipe>>([]);
+    const [authenticated, setAuthenticated] = useState<boolean>(false);
 
-  useEffect(() => {
-    const url = window.location.protocol + "//" + window.location.hostname + ":3001";
-    console.log(url)
-    fetch(url, {
-      "headers": {},
-      "referrerPolicy": "strict-origin-when-cross-origin",
-      "body": null,
-      "method": "GET"    
-    })
-    .then((response) => response.json())
-    .then((json) => {
-      setRecipes(json)
-    })
-    .catch((error) => {
-      console.error(error)
-    })
-  }, [])
-
-  return (
-    <div className='page-container'>
-      <Logo />
-      <RecipePage
-        recipes={recipes}
-      />
-    </div>
-  );
+    return (
+        <div className="page-container">
+            <AuthContext.Provider value={{authenticated, setAuthenticated}}>
+                <BrowserRouter>
+                    <Routes>
+                        {authenticated ? (
+                            <Route path="/" element={<Logo />}>
+                                <Route path="recipe/" element={<RecipePage />}/>
+                                <Route path="recipe/:id" element={<RecipeDetailsPage/>}/>
+                            </Route>
+                        ) : (
+                            <Route path="/*" element={<LoginPage/>} />
+                        )}
+                    </Routes>
+                </BrowserRouter>
+            </AuthContext.Provider>
+        </div>
+    );
 }
-
-
 
 export default App;

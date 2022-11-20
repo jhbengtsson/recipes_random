@@ -1,0 +1,14 @@
+{
+  "files": {
+    "main.css": "/static/css/main.dd809c11.css",
+    "main.js": "/static/js/main.6ae4d58f.js",
+    "static/media/logo_wo_text.png": "/static/media/logo_wo_text.b5e04162145fd0033652.png",
+    "index.html": "/index.html",
+    "main.dd809c11.css.map": "/static/css/main.dd809c11.css.map",
+    "main.6ae4d58f.js.map": "/static/js/main.6ae4d58f.js.map"
+  },
+  "entrypoints": [
+    "static/css/main.dd809c11.css",
+    "static/js/main.6ae4d58f.js"
+  ]
+}
